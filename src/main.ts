@@ -26,9 +26,12 @@ set -euo pipefail
 
 echo ${wrappedPackages}
 echo "SNAWAZ"
+echo 'command: ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}'
 nix --version
 # nix run ${wrappedPackages} -c ${interpreter} ${scriptPath} ||
-nix --experimental-features 'nix-command flakes' shell ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}
+# nix --experimental-features 'nix-command flakes' shell ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}
+nix shell ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}
+
       `
     console.log("nixWrapper: ", nixWrapper);
     
