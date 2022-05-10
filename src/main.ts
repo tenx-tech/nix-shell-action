@@ -25,10 +25,13 @@ function run(): void {
 set -euo pipefail
 
 echo ${wrappedPackages}
-nix run ${wrappedPackages} -c ${interpreter} ${scriptPath} ||
+echo "SNAWAZ"
+nix --version
+# nix run ${wrappedPackages} -c ${interpreter} ${scriptPath} ||
 nix --experimental-features 'nix-command flakes' shell ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}
       `
-
+    console.log("nixWrapper: ", nixWrapper);
+    
     const wrappedScript = `
 set -euo pipefail
 
