@@ -52,6 +52,7 @@ function run() {
 set -euo pipefail
 
 echo "SARFARAZ"
+echo 'script: |${script}|'
 echo ${wrappedPackages}
 echo 'nix shell ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}'
 # nix run ${wrappedPackages} -c ${interpreter} ${scriptPath} ||
