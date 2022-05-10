@@ -53,8 +53,11 @@ set -euo pipefail
 
 echo "SARFARAZ"
 echo ${wrappedPackages}
+echo 'nix shell ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}'
 # nix run ${wrappedPackages} -c ${interpreter} ${scriptPath} ||
-nix --experimental-features 'nix-command flakes' shell ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}
+# nix --experimental-features 'nix-command flakes' shell ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}
+nix shell ${flakeWrappedPackages} -c ${interpreter} ${scriptPath}
+
       `;
         const wrappedScript = `
 set -euo pipefail
